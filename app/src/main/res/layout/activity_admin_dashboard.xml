@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_login_header"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:titleTextColor="@color/white"
+            app:title="Admin"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_md">
+
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bienvenue Admin"
+                android:textSize="@dimen/text_size_headline"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/elevation_medium">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_sm">
+
+                        <TextView
+                            android:id="@+id/tvStatVoitures"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="@dimen/text_size_headline"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Voitures"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/elevation_medium">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_sm">
+
+                        <TextView
+                            android:id="@+id/tvStatClients"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="@dimen/text_size_headline"
+                            android:textStyle="bold"
+                            android:textColor="@color/secondary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Clients"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/elevation_medium">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_sm">
+
+                        <TextView
+                            android:id="@+id/tvStatReservations"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textSize="@dimen/text_size_headline"
+                            android:textStyle="bold"
+                            android:textColor="@color/warning"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Réservations"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="@dimen/elevation_medium">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_sm">
+
+                        <TextView
+                            android:id="@+id/tvStatRevenus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 €"
+                            android:textSize="@dimen/text_size_headline"
+                            android:textStyle="bold"
+                            android:textColor="@color/success"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Revenus"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gestion"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="@dimen/spacing_md"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvVoitures"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dashboard_card_height"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@color/ripple_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_large"
+                            android:layout_height="@dimen/icon_size_large"
+                            android:layout_marginBottom="@dimen/spacing_sm"
+                            android:background="@drawable/bg_icon_circle_blue">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_medium"
+                                android:layout_height="@dimen/icon_size_medium"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_gallery"
+                                android:tint="@color/white"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Voitures"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gérer le parc"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvClients"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dashboard_card_height"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@color/ripple_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_large"
+                            android:layout_height="@dimen/icon_size_large"
+                            android:layout_marginBottom="@dimen/spacing_sm"
+                            android:background="@drawable/bg_icon_circle_purple">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_medium"
+                                android:layout_height="@dimen/icon_size_medium"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_myplaces"
+                                android:tint="@color/white"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Clients"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gérer les clients"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvReservations"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dashboard_card_height"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@color/ripple_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_large"
+                            android:layout_height="@dimen/icon_size_large"
+                            android:layout_marginBottom="@dimen/spacing_sm"
+                            android:background="@drawable/bg_icon_circle_yellow">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_medium"
+                                android:layout_height="@dimen/icon_size_medium"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_my_calendar"
+                                android:tint="@color/white"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Réservations"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Voir les réservations"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvPaiements"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dashboard_card_height"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@color/ripple_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_large"
+                            android:layout_height="@dimen/icon_size_large"
+                            android:layout_marginBottom="@dimen/spacing_sm"
+                            android:background="@drawable/bg_icon_circle_green">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_medium"
+                                android:layout_height="@dimen/icon_size_medium"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_send"
+                                android:tint="@color/white"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Paiements"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Historique"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvMap"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dashboard_card_height"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@color/ripple_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_large"
+                            android:layout_height="@dimen/icon_size_large"
+                            android:layout_marginBottom="@dimen/spacing_sm"
+                            android:background="@drawable/bg_icon_circle_red">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_medium"
+                                android:layout_height="@dimen/icon_size_medium"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_dialog_map"
+                                android:tint="@color/white"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Carte"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vue map"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvValidations"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dashboard_card_height"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/spacing_xs"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:rippleColor="@color/ripple_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_md"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="@dimen/icon_size_large"
+                            android:layout_height="@dimen/icon_size_large"
+                            android:layout_marginBottom="@dimen/spacing_sm"
+                            android:background="@drawable/bg_icon_circle_green">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_medium"
+                                android:layout_height="@dimen/icon_size_medium"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_rotate"
+                                android:tint="@color/white"/>
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Validations"
+                            android:textSize="@dimen/text_size_subtitle"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="En attente"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textColor="@color/text_secondary"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

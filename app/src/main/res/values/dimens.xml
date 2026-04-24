@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_xxs">2dp</dimen>
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+    <dimen name="spacing_xxl">48dp</dimen>
+
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="button_corner_radius">12dp</dimen>
+    <dimen name="input_corner_radius">12dp</dimen>
+    <dimen name="small_corner_radius">8dp</dimen>
+    <dimen name="medium_corner_radius">12dp</dimen>
+    <dimen name="large_corner_radius">16dp</dimen>
+
+    <dimen name="icon_size_small">24dp</dimen>
+    <dimen name="icon_size_medium">32dp</dimen>
+    <dimen name="icon_size_large">48dp</dimen>
+    <dimen name="icon_size_xl">64dp</dimen>
+
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="button_height_small">44dp</dimen>
+    <dimen name="input_height">56dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="text_size_caption">12sp</dimen>
+    <dimen name="text_size_body">14sp</dimen>
+    <dimen name="text_size_subtitle">16sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_headline">24sp</dimen>
+    <dimen name="text_size_display">32sp</dimen>
+
+    <dimen name="list_item_height">88dp</dimen>
+    <dimen name="list_item_photo_size">72dp</dimen>
+    <dimen name="card_min_height">140dp</dimen>
+    <dimen name="dashboard_card_height">160dp</dimen>
+
+    <dimen name="elevation_low">2dp</dimen>
+    <dimen name="elevation_medium">4dp</dimen>
+    <dimen name="elevation_high">8dp</dimen>
+</resources>

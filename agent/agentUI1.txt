@@ -1,0 +1,78 @@
+AGENT UI - MODIFICATIONS STYLE UBER
+===================================
+
+PROJET: GestionLocationVoitures (Android Views)
+
+COULEURS (colors.xml):
+---------------------
+- uber_green: #06C167 (principal)
+- uber_green_dark: #05A551
+- uber_green_light: #1AD687
+- uber_black: #000000
+- uber_white: #FFFFFF
+- background_light: #F6F8F9
+- text_primary: #1E1E1E
+- text_secondary: #5E5E5E
+- card_voiture: #06C167 (green)
+- card_client: #4285F4 (blue)
+- card_reservation: #FBBC04 (yellow)
+- card_paiement: #9334E6 (purple)
+- card_map: #EA4335 (red)
+
+DASHBOARD (activity_dashboard.xml):
+------------------------------------
+- MaterialCardView avec coins arrondis (16dp)
+- Elevation: 4dp
+- Toolbar Uber Green avec AppBarLayout
+- Cards avec cercles d'icons colores
+- NestedScrollView pour le contenu
+- Style moderne type Uber/ride-sharing
+
+ADMIN DASHBOARD (activity_admin_dashboard.xml):
+--------------------------------------------
+- Toolbar noire (uber_black)
+- 6 cards en grille 2x3
+- Card Validations en vert Uber
+- Meme style MaterialCardView
+
+JAVA FILES MODIFIES:
+--------------------
+1. DashboardActivity.java
+   - Ajout: import Toolbar, AppBarLayout
+   - Setup toolbar avec setSupportActionBar
+   - Stats sur une seule ligne
+
+2. AdminDashboardActivity.java
+   - Ajout: import Toolbar
+   - Setup toolbar
+
+DRAWABLES CREES:
+---------------
+- bg_circle_uber_green.xml (green circles)
+- bg_circle_blue.xml
+- bg_circle_yellow.xml
+- bg_circle_purple.xml
+- bg_circle_red.xml
+- bg_circle_white.xml
+
+MENU CREE:
+---------
+- menu_bottom_nav.xml (Bottom Navigation style)
+
+FICHIERS MODIFIES:
+-----------------
+1. app/src/main/res/values/colors.xml
+2. app/src/main/res/layout/activity_dashboard.xml
+3. app/src/main/res/layout/activity_admin_dashboard.xml
+4. app/src/main/res/drawable/bg_circle_uber_green.xml
+5. app/src/main/res/drawable/bg_circle_blue.xml
+6. app/src/main/res/drawable/bg_circle_yellow.xml
+7. app/src/main/res/drawable/bg_circle_purple.xml
+8. app/src/main/res/drawable/bg_circle_red.xml
+9. app/src/main/res/drawable/bg_circle_white.xml
+10. app/src/main/res/menu/menu_bottom_nav.xml
+
+JAVA FILES MODIFIES:
+--------------------
+1. app/src/main/java/.../activities/DashboardActivity.java
+2. app/src/main/java/.../activities/AdminDashboardActivity.java

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/purple_200"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/tvDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réservation #"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tvDates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dates"
+        android:textSize="14sp"/>
+    <TextView
+        android:id="@+id/tvPrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prix"
+        android:textSize="14sp"/>
+    <TextView
+        android:id="@+id/tvStatut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Statut"
+        android:textSize="12sp"
+        android:textColor="@color/purple_700"/>
+</LinearLayout>

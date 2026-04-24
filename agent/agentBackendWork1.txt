@@ -1,0 +1,59 @@
+MODIFICATIONS EFFECTUEES - ROLE ADMIN/CLIENT
+==============================================
+
+1. RegisterActivity.java
+   - Remplacé "employé" par "admin" dans le tableau des rôles
+   - Roles disponibles: "admin", "client"
+
+2. LoginActivity.java
+   - Correction de la redirection: si role="admin" -> AdminDashboardActivity
+   - Si role="client" -> DashboardActivity
+
+3. DashboardActivity.java (Dashboard client)
+   - Changement de vérification: "administrateur" -> "admin"
+   - Menu client limité:
+     * Voitures: visible (consultation uniquement)
+     * Clients: caché (View.GONE)
+     * Réservations: visible
+     * Paiements: caché (View.GONE)
+   - Stats limitées: voitures disponibles + réservations actives
+
+4. VoitureListActivity.java
+   - Ajout de SessionManager pour vérifier le rôle
+   - Bouton "Ajouter" visible uniquement pour admin
+   - Filtre visible uniquement pour admin
+   - Click sur liste désactivé pour les clients (juste consultation)
+
+5. ClientListActivity.java
+   - Accès complètement restreint aux admins
+   - Si client connecté -> Toast "Accès réservé aux administrateurs" + finish()
+
+6. ReservationListActivity.java
+   - Bouton "Ajouter" visible uniquement pour admin
+   - Filtre visible uniquement pour admin
+   - Clients peuvent voir mais pas créer
+
+7. DatabaseHelper.java
+   - Utilisateur admin par défaut: username='admin', password='admin123', role='admin'
+   - Stats[2] modifié: clients -> réservations actives (en_attente + en_cours)
+
+DROITS PAR RÔLE
+===============
+
+ADMIN:
+- Dashboard complet avec toutes les fonctionnalités
+- Ajout/Modification/Suppression des voitures
+- Gestion des clients
+- Gestion des réservations (toutes)
+- Gestion des paiements
+- Carte (Map)
+- Validations
+- Génération PDF contrats
+
+CLIENT:
+- Dashboard limité:
+  * Voitures (consultation seulement)
+  * Réservations (voir liste, créer nouvelle)
+- Pas d'accès: Clients, Paiements
+- Pas de création de voiture
+- Pas de modification des données

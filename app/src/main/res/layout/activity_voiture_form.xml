@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_md">
+
+        <TextView
+            android:id="@+id/tvTitre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter une Voiture"
+            android:textSize="@dimen/text_size_headline"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="@dimen/spacing_md"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="@dimen/spacing_md"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation">
+
+            <ImageView
+                android:id="@+id/ivPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:background="@color/gray_200"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabPickPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/spacing_md"
+            android:src="@android:drawable/ic_menu_camera"
+            app:backgroundTint="@color/primary"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_sm"
+            style="@style/Widget.App.TextInputLayout"
+            android:hint="Marque *">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMarque"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_sm"
+            style="@style/Widget.App.TextInputLayout"
+            android:hint="Modèle *">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etModele"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/spacing_sm"
+                style="@style/Widget.App.TextInputLayout"
+                android:hint="Année *">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAnnee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/Widget.App.TextInputLayout"
+                android:hint="Prix/jour *">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPrix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            style="@style/Widget.App.TextInputLayout"
+            android:hint="Couleur">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCouleur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_sm"
+            style="@style/Widget.App.TextInputLayout"
+            android:hint="Kilométrage">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etKilometrage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emplacement (Fès) *"
+            android:textStyle="bold"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="@dimen/spacing_sm"/>
+
+        <Spinner
+            android:id="@+id/spinnerLocation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:background="@drawable/bg_spinner"
+            android:padding="@dimen/spacing_sm"
+            android:prompt="@string/select_location"/>
+
+        <TextView
+            android:id="@+id/tvSelectedLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textColor="@color/primary"
+            android:visibility="gone"/>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbDisponible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disponible"
+            android:checked="true"
+            android:layout_marginTop="@dimen/spacing_sm"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="Enregistrer"
+            android:textAllCaps="false"
+            app:cornerRadius="@dimen/button_corner_radius"
+            android:layout_marginTop="@dimen/spacing_md"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:text="Supprimer"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            app:cornerRadius="@dimen/button_corner_radius"
+            app:backgroundTint="@color/error"/>
+    </LinearLayout>
+</ScrollView>

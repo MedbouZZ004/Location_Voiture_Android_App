@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="uber_black">#FF000000</color>
+    <color name="uber_white">#FFFFFFFF</color>
+    <color name="uber_green">#FF00B4D8</color>
+    <color name="uber_green_dark">#FF0096B7</color>
+    <color name="uber_green_light">#FF48CAE4</color>
+    <color name="uber_blue">#FF4285F4</color>
+
+    <color name="background_light">#FFF6F8F9</color>
+    <color name="background_dark">#FF1E1E1E</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="surface_elevated">#FFFFFFFF</color>
+
+    <color name="text_primary">#FF1E1E1E</color>
+    <color name="text_secondary">#FF5E5E5E</color>
+    <color name="text_hint">#FFA0A0A0</color>
+    <color name="text_on_primary">#FFFFFFFF</color>
+
+    <color name="divider">#FFE0E0E0</color>
+    <color name="border">#FFD0D0D0</color>
+
+<color name="success">#FF00B4D8</color>
+    <color name="warning">#FFFFCC00</color>
+    <color name="error">#FFEA4335</color>
+    <color name="info">#FF4285F4</color>
+    
+    <color name="card_voiture">#FF00B4D8</color>
+    <color name="card_client">#FF4285F4</color>
+    <color name="card_reservation">#FFFBBC04</color>
+    <color name="card_paiement">#FF9334E6</color>
+    <color name="card_map">#FFEA4335</color>
+    <color name="card_validation">#FF00B4D8</color>
+
+    <color name="purple_50">#F3E5F5</color>
+    <color name="purple_100">#E1BEE7</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="red">#FFFF0000</color>
+    <color name="green_500">#FF4CAF50</color>
+    <color name="orange_500">#FFFF9800</color>
+
+    <color name="primary">#FF00B4D8</color>
+    <color name="primary_variant">#FF0096B7</color>
+    <color name="primary_light">#FF48CAE4</color>
+    <color name="secondary">#FF4285F4</color>
+    <color name="secondary_variant">#FF3367D6</color>
+
+    <color name="gray_50">#FFFAFAFA</color>
+    <color name="gray_100">#FFF5F5F5</color>
+    <color name="gray_200">#FFEEEEEE</color>
+    <color name="gray_300">#FFE0E0E0</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_500">#FF9E9E9E</color>
+    <color name="gray_600">#FF757575</color>
+    <color name="gray_700">#FF616161</color>
+    <color name="gray_800">#FF424242</color>
+    <color name="gray_900">#FF212121</color>
+
+    <color name="status_available">#FF4CAF50</color>
+    <color name="status_rented">#FFFF9800</color>
+    <color name="status_reserved">#FF2196F3</color>
+    <color name="status_maintenance">#FF9E9E9E</color>
+
+    <color name="overlay_dark">#80000000</color>
+    <color name="ripple_light">#1F000000</color>
+    <color name="ripple_dark">#1FFFFFFF</color>
+
+    <color name="shimmer_base">#FFE0E0E0</color>
+    <color name="shimmer_highlight">#FFF5F5F5</color>
+</resources>

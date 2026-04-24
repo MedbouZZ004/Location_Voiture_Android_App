@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_light">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/uber_green">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/uber_green"
+            app:titleTextColor="@color/white"
+            app:title="Paiements"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/tvTitre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mes Paiements"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_primary"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/btnNouveauPaiement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nouveau paiement"
+        android:backgroundTint="@color/uber_green"
+        android:layout_marginHorizontal="16dp"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/lvPaiements"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"/>
+</LinearLayout>
