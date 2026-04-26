@@ -18,9 +18,12 @@ import androidx.appcompat.widget.Toolbar;
 import com.med.locationvoiture.R;
 import com.med.locationvoiture.adapters.ReservationAdapter;
 import com.med.locationvoiture.database.DatabaseHelper;
+import com.med.locationvoiture.models.Client;
 import com.med.locationvoiture.models.Paiement;
 import com.med.locationvoiture.models.Reservation;
+import com.med.locationvoiture.models.Voiture;
 import com.med.locationvoiture.utils.NotificationHelper;
+import com.med.locationvoiture.utils.PdfGenerator;
 import com.med.locationvoiture.utils.SessionManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +46,7 @@ public class ValidationListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Validations");
         }
         toolbar.setNavigationOnClickListener(v -> finish());
 
@@ -115,7 +119,7 @@ public class ValidationListActivity extends AppCompatActivity {
             tvPaiementsCount.setVisibility(View.VISIBLE);
         }
         
-        lvPaiements.setAdapter(new com.med.locationvoiture.adapters.PaiementAdapter(this, paiementsEnAttente));
+        lvPaiements.setAdapter(new com.med.locationvoiture.adapters.PaiementAdapter(this, paiementsEnAttente, true));
         
         lvPaiements.setOnItemClickListener((parent, view, position, id) -> {
             Paiement p = paiementsEnAttente.get(position);
@@ -160,6 +164,28 @@ public class ValidationListActivity extends AppCompatActivity {
             .setPositiveButton("Valider", (dialog, which) -> {
                 if (r != null) {
                     r.setStatut("confirmee");
+                    
+                    Client client = dbHelper.getClientById(r.getClient_id());
+                    Voiture voiture = dbHelper.getVoitureById(r.getVoiture_id());
+                    
+                    String contractPath = PdfGenerator.generateReservationContract(
+                        this,
+                        r.getId(),
+                        client != null ? client.getNom() + " " + client.getPrenom() : "Client",
+                        client != null ? client.getEmail() : "",
+                        client != null ? client.getCin() : "",
+                        voiture != null ? voiture.getMarque() : "",
+                        voiture != null ? voiture.getModele() : "",
+                        r.getDate_debut(),
+                        r.getDate_fin(),
+                        r.getPrix_total()
+                    );
+                    
+                    if (contractPath != null) {
+                        r.setContract_path(contractPath);
+                        Toast.makeText(this, "Contrat PDF généré!", Toast.LENGTH_SHORT).show();
+                    }
+                    
                     dbHelper.updateReservation(r);
                     
                     ContentValues cv = new ContentValues();

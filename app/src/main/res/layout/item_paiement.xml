@@ -26,4 +26,33 @@
         android:layout_height="wrap_content"
         android:text="Date - Mode"
         android:textSize="12sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnValider"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Valider"
+            android:textSize="12sp"
+            android:backgroundTint="@color/uber_green"
+            android:layout_marginEnd="8dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <Button
+            android:id="@+id/btnTelechargerFacture"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Télécharger PDF"
+            android:textSize="12sp"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
 </LinearLayout>

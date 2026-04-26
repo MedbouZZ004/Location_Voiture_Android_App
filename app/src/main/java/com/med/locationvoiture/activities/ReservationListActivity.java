@@ -2,6 +2,7 @@ package com.med.locationvoiture.activities;
 
 import android.content.Intent;
 import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.med.locationvoiture.R;
 import com.med.locationvoiture.adapters.ReservationAdapter;
@@ -103,6 +105,23 @@ public class ReservationListActivity extends AppCompatActivity {
     }
 
     private void showPdfDialog(Reservation r) {
+        String contractPath = r.getContract_path();
+        
+        if (contractPath != null && !contractPath.isEmpty()) {
+            File contractFile = new File(contractPath);
+            if (contractFile.exists()) {
+                new android.app.AlertDialog.Builder(this)
+                    .setTitle("Contrat de Location")
+                    .setMessage("Le contrat est déjà généré. Voulez-vous le télécharger?")
+                    .setPositiveButton("Télécharger", (dialog, which) -> {
+                        openPdf(contractPath);
+                    })
+                    .setNegativeButton("Annuler", null)
+                    .show();
+                return;
+            }
+        }
+        
         new android.app.AlertDialog.Builder(this)
             .setTitle("Contrat de Location")
             .setMessage("Voulez-vous télécharger le contrat de location en PDF?")
@@ -111,6 +130,25 @@ public class ReservationListActivity extends AppCompatActivity {
             })
             .setNegativeButton("Annuler", null)
             .show();
+    }
+
+    private void openPdf(String filePath) {
+        try {
+            File file = new File(filePath);
+            Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", file);
+            
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(uri, "application/pdf");
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Aucune application pour ouvrir les PDF", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "Erreur: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void generatePdf(Reservation r) {
@@ -275,6 +313,9 @@ public class ReservationListActivity extends AppCompatActivity {
     }
 
     private void filterReservations(int position) {
+        if (lvReservations == null) {
+            lvReservations = findViewById(R.id.lvReservations);
+        }
         List<Reservation> allReservations = dbHelper.getAllReservations();
         
         if (!isAdmin) {
@@ -289,7 +330,7 @@ public class ReservationListActivity extends AppCompatActivity {
         }
         
         if (position == 0) {
-            lvReservations.setAdapter(new ReservationAdapter(this, allReservations));
+            if (lvReservations != null) lvReservations.setAdapter(new ReservationAdapter(this, allReservations));
         } else {
             String[] statuts = {"en_attente", "en_cours", "payee", "confirmee", "annulee"};
             List<Reservation> filtered = new ArrayList<>();
@@ -298,7 +339,7 @@ public class ReservationListActivity extends AppCompatActivity {
                     filtered.add(r);
                 }
             }
-            lvReservations.setAdapter(new ReservationAdapter(this, filtered));
+            if (lvReservations != null) lvReservations.setAdapter(new ReservationAdapter(this, filtered));
         }
     }
 }

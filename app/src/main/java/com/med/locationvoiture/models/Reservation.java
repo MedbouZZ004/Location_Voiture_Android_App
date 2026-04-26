@@ -11,6 +11,7 @@ public class Reservation {
     private String created_at;
     private String client_nom;
     private String voiture_nom;
+    private String contract_path;
 
     public Reservation() {}
 
@@ -43,4 +44,6 @@ public class Reservation {
     public void setClient_nom(String client_nom) { this.client_nom = client_nom; }
     public String getVoiture_nom() { return voiture_nom; }
     public void setVoiture_nom(String voiture_nom) { this.voiture_nom = voiture_nom; }
+    public String getContract_path() { return contract_path; }
+    public void setContract_path(String contract_path) { this.contract_path = contract_path; }
 }

@@ -104,6 +104,10 @@ public class ReservationFormActivity extends AppCompatActivity {
                     Toast.makeText(this, "La date de fin doit être après la date de début", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (jours > 365) {
+                    Toast.makeText(this, "La durée maximale est de 365 jours", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double total = jours * prixJour;
                 etPrixTotal.setText(String.format("%.2f", total));
             }

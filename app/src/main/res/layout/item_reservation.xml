@@ -33,4 +33,14 @@
         android:text="Statut"
         android:textSize="12sp"
         android:textColor="@color/purple_700"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDownloadContract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="📥 Télécharger Contrat"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        style="@style/Widget.Material3.Button.TonalButton"/>
 </LinearLayout>

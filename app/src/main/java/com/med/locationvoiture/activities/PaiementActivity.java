@@ -7,10 +7,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.med.locationvoiture.R;
 import com.med.locationvoiture.adapters.PaiementAdapter;
+import com.med.locationvoiture.adapters.PaiementAdapter.OnPaiementClickListener;
 import com.med.locationvoiture.database.DatabaseHelper;
 import com.med.locationvoiture.models.Paiement;
 import com.med.locationvoiture.models.Reservation;
@@ -49,7 +51,9 @@ public class PaiementActivity extends AppCompatActivity {
 
         boolean isAdmin = "admin".equals(sessionManager.getRole());
 
-        if (!isAdmin) {
+        if (isAdmin) {
+            tvTitre.setText("Gestion Paiements");
+        } else {
             if (reservationId > 0) {
                 showPaiementForm(reservationId);
             } else {
@@ -168,18 +172,67 @@ public class PaiementActivity extends AppCompatActivity {
         });
     }
 
+    private void showPaiementDialog(Paiement p) {
+        Reservation r = dbHelper.getReservationById(p.getReservation_id());
+        String clientName = p.getClient_nom() != null ? p.getClient_nom() : "Client #" + p.getReservation_id();
+        
+        new AlertDialog.Builder(this)
+            .setTitle("Valider Paiement #" + p.getId())
+            .setMessage("Client: " + clientName + "\nMontant: " + String.format("%.2f €", p.getMontant()) + 
+                "\nDate: " + p.getDate_paiement() + "\n\nVoulez-vous valider ce paiement?")
+            .setPositiveButton("Valider", (dialog, which) -> {
+                if (r != null) {
+                    r.setStatut("confirmee");
+                    dbHelper.updateReservation(r);
+                    android.content.ContentValues cv = new android.content.ContentValues();
+                    cv.put("disponible", 0);
+                    dbHelper.getWritableDatabase().update("voitures", cv, "id = ?", new String[]{String.valueOf(r.getVoiture_id())});
+                }
+                Toast.makeText(this, "Paiement validé!", Toast.LENGTH_SHORT).show();
+                onResume();
+            })
+            .setNegativeButton("Annuler", null)
+            .show();
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
+        if (lvPaiements == null) {
+            lvPaiements = findViewById(R.id.lvPaiements);
+        }
+        if (lvPaiements == null) {
+            lvPaiements = new android.widget.ListView(this);
+        }
         if (reservationId <= 0) {
-            boolean isAdmin = "admin".equals(sessionManager.getRole());
-            List<Paiement> paiements;
-            if (isAdmin) {
-                paiements = dbHelper.getAllPaiements();
-            } else {
-                paiements = dbHelper.getPaiementsByClientId(sessionManager.getUserId());
+            try {
+                boolean isAdmin = "admin".equals(sessionManager.getRole());
+                List<Paiement> paiements;
+                if (isAdmin) {
+                    paiements = dbHelper.getAllPaiements();
+                } else {
+                    paiements = dbHelper.getPaiementsByClientId(sessionManager.getUserId());
+                }
+                if (paiements == null) {
+                    paiements = new java.util.ArrayList<>();
+                }
+final PaiementAdapter adapter = new PaiementAdapter(this, paiements, isAdmin);
+                
+                adapter.setOnPaiementClickListener(new OnPaiementClickListener() {
+                    @Override
+                    public void onValiderClicked(Paiement p) {
+                        showPaiementDialog(p);
+                    }
+                    @Override
+                    public void onTelechargerClicked(Paiement p) {
+                    }
+                });
+                
+                lvPaiements.setAdapter(adapter);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Erreur: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
-            lvPaiements.setAdapter(new PaiementAdapter(this, paiements));
         }
     }
     

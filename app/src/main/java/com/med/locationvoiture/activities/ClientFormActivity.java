@@ -72,6 +72,18 @@ public class ClientFormActivity extends AppCompatActivity {
             Toast.makeText(this, "Veuillez remplir les champs obligatoires", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Email invalide", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!cin.matches("[A-Za-z0-9]+")) {
+            Toast.makeText(this, "CIN invalide (lettres et chiffres uniquement)", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!telephone.isEmpty() && !telephone.matches("\\d+")) {
+            Toast.makeText(this, "Téléphone invalide", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Client c = new Client();
         if (clientId > 0) c.setId(clientId);

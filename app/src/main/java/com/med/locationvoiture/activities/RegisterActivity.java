@@ -49,16 +49,25 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!password.equals(confirmPassword)) {
-                Toast.makeText(this, "Les mots de passe ne correspondent pas", Toast.LENGTH_SHORT).show();
+            if (username.length() < 3) {
+                Toast.makeText(this, "Le nom d'utilisateur doit contenir au moins 3 caractères", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!username.matches("[a-zA-Z0-9_]+")) {
+                Toast.makeText(this, "Le nom d'utilisateur ne peut contenir que des lettres, chiffres et _", Toast.LENGTH_SHORT).show();
                 return;
             }
             if (password.length() < 6) {
                 Toast.makeText(this, "Le mot de passe doit contenir au moins 6 caractères", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (!password.equals(confirmPassword)) {
+                Toast.makeText(this, "Les mots de passe ne correspondent pas", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-            Utilisateur utilisateur = new Utilisateur(username, password, role);
+            String hashedPassword = DatabaseHelper.hashPassword(password);
+            Utilisateur utilisateur = new Utilisateur(username, hashedPassword, role);
             long id = dbHelper.insertUtilisateur(utilisateur);
             if (id > 0) {
                 Toast.makeText(this, "Compte créé avec succès", Toast.LENGTH_SHORT).show();

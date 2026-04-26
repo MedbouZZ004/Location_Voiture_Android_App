@@ -167,13 +167,48 @@ public class VoitureFormActivity extends AppCompatActivity {
             return;
         }
 
+        int annee, km;
+        double prix;
+        try {
+            annee = Integer.parseInt(anneeStr);
+            if (annee < 1900 || annee > 2030) {
+                Toast.makeText(this, "Année invalide", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Année invalide", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            prix = Double.parseDouble(prixStr);
+            if (prix <= 0) {
+                Toast.makeText(this, "Prix invalide", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Prix invalide", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            km = kmStr.isEmpty() ? 0 : Integer.parseInt(kmStr);
+            if (km < 0) {
+                Toast.makeText(this, "Kilométrage invalide", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Kilométrage invalide", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Voiture v = new Voiture();
         if (voitureId > 0) v.setId(voitureId);
         v.setMarque(marque);
         v.setModele(modele);
-        v.setAnnee(Integer.parseInt(anneeStr));
-        v.setPrix_jour(Double.parseDouble(prixStr));
-        v.setKilometrage(kmStr.isEmpty() ? 0 : Integer.parseInt(kmStr));
+        v.setAnnee(annee);
+        v.setPrix_jour(prix);
+        v.setKilometrage(km);
         v.setCouleur(couleur);
         v.setDisponible(cbDisponible.isChecked());
         v.setImage_path(imagePath);

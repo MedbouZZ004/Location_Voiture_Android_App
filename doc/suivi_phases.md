@@ -85,3 +85,5 @@
 | 2026-04-23 | 1 | Estructura de paquetes creada | models, activities, database, utils, adapters, fragments |
 | 2026-04-23 | 1 | Schema BDD SQLite | DatabaseHelper con tables usuarios, voitures, clients, reservations, paiements |
 | 2026-04-23 | 1-5 | Build exitoso - Toutes phases | Debug APK generé avec toutes les fonctionnalités |
+| 2026-04-26 | 6 | Génération PDF facture | Ajout télécharger facture en PDF |
+| 2026-04-26 | 6 | Recherche intelligente voitures | Recherche par marque, modèle, immatriculation, catégorie |
